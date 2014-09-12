@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<job id="sleepy-batchlet" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+	<step id="step1">
+		<batchlet ref="com.ibm.ws.jbatch.sample.sleepybatchlet.SleepyBatchlet" >
+            <properties>
+                <property name="sleep.time.seconds" value="#{jobParameters['sleep.time.seconds']}" />
+            </properties>
+        </batchlet>
+	</step>
+</job>
