@@ -122,6 +122,3 @@ LibertyServer.jar contains:
 along with several data files under BATCHDB and classes that handle self-extraction of the jar.
 These files have been omitted from the above list, for brevity and clarity.
 
-
-
-
