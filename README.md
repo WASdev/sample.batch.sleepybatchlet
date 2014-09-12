@@ -4,12 +4,12 @@ SleepyBatchlet is a simple sample batchlet for use with feature javaBatch-1.0 on
 javaBatch-1.0 is Liberty's implementation of the Batch Programming Model in Java EE 7, as specified by JSR 352.
 
 The batchlet itself is rather uninteresting. All it does is sleep in 1 second increments for a default time
-of 15 seconds.  The sleep time is configurable via the batch property sleep.time.seconds.  The batchlet
+of 15 seconds.  The sleep time is configurable via batch property *sleep.time.seconds*.  The batchlet
 prints a message to System.out each second, so you can easily verify that it's running.
 
 ##Install and run the sample
 
-1. From your wlp/ installation directory, extract the sample archive:
+1. From your wlp/ installation directory, run the self-extracting sample archive:
 
         $ java -jar LibertyServer.jar
 
@@ -30,7 +30,7 @@ Besides starting a job, you can also stop, restart, and get status, by hitting t
     http://localhost:9080/SleepyBatchletSample-1.0/sleepybatchlet?action=restart&executionId=xx
     http://localhost:9080/SleepyBatchletSample-1.0/sleepybatchlet?action=status&executionId=xx
 
-Where *executionId* is the job execution ID.  Each http request returns JobInstance and JobExecution
+Where *executionId=xx* is the job execution ID.  Each http request returns JobInstance and JobExecution
 records for the job.  
 
 ##Example session
@@ -94,7 +94,7 @@ JobExecution: executionId=2, jobName=sleepy-batchlet, batchStatus=STOPPED, creat
 
 ##Notes
 
-* The archive LibertyServer.jar contains a pre-configured liberty server (named LibertyServer) with the
+* The self-extracting archive **LibertyServer.jar** contains a pre-configured liberty server (named LibertyServer) with the
 SleepyBatchlet sample application already installed.  It also contains a pre-built Derby database for
 the Batch runtime tables, which are needed by javaBatch-1.0 for managing jobs.  Please see the Liberty
 Knowledge Center for information on how to create, configure, and customize the batch database.
@@ -112,13 +112,13 @@ The sample repository contains the following files:
     src/main/java/com/ibm/ws/jbatch/sample/sleepybatchlet/web/SleepyBatchletServlet.java
     src/main/webapp/WEB-INF/classes/META-INF/batch-jobs/sleepy-batchlet.xml
 
-LibertyServer.jar contains:
+The self-extracting archive **LibertyServer.jar** contains:
 
     wlp/usr/servers/LibertyServer/server.xml
     wlp/usr/servers/LibertyServer/dropins/SleepyBatchletSample-1.0.war
     wlp/usr/servers/LibertyServer/resources/BATCHDB/
     wlp/usr/servers/LibertyServer/resources/derby/derby.jar
 
-along with several data files under BATCHDB and classes that handle self-extraction of the jar.
+...along with several data files under `BATCHDB` and classes that handle self-extraction of the jar.
 These files have been omitted from the above list, for brevity and clarity.
 
