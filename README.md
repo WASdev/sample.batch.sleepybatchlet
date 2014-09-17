@@ -37,8 +37,7 @@ records for the job.
 
 Below is an example session, using cURL.  
 
-Note: The query parameter *sleep.time.seconds* is passed along as a batch property for the job.
-The property controls how long sleepyBatchlet runs.
+Note: The query parameter *sleep.time.seconds* is passed along as a job parameter for the job, and then injected into the batchlet via a batch property.  The property controls how long sleepyBatchlet runs.
 
 ```
 $ curl 'http://localhost:9080/SleepyBatchletSample-1.0/sleepybatchlet?action=start'
