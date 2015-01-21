@@ -24,7 +24,7 @@ article for more information: http://www-01.ibm.com/support/knowledgecenter/was_
 the server's dropins/ directory.
 
 4. Run the sample. You can kickoff the batch job thru the sample servlet
-by hitting the following URL, either via a browser or cURL or your preferred HTTP client:
+by hitting the following URL:
 
         http://localhost:9080/SleepyBatchletSample-1.0/sleepybatchlet?action=start
 
@@ -101,9 +101,9 @@ JobExecution: executionId=2, jobName=sleepy-batchlet, batchStatus=STOPPED, creat
 
 The sample repository contains the following files:
 
-    README.md
-    SleepyBatchletSample-1.0.war
-    server.xml
+    README.md 
+    SleepyBatchletSample-1.0.war - pre-built sample app
+    server.xml - sample 
     pom.xml
     src/main/java/com/ibm/ws/jbatch/sample/sleepybatchlet/SleepyBatchlet.java
     src/main/java/com/ibm/ws/jbatch/sample/sleepybatchlet/web/SleepyBatchletServlet.java
