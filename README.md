@@ -7,17 +7,23 @@ The batchlet itself is rather uninteresting. All it does is sleep in 1 second in
 of 15 seconds.  The sleep time is configurable via batch property *sleep.time.seconds*.  The batchlet
 prints a message to System.out each second, so you can easily verify that it's running.
 
+##Build the sample
+
+For your convenience, the sample application has already been built: SleepyBatchletSample-1.0.war.
+
+To build from source, use maven or import the source into WDT (WebSphere Developer Tools).
+
 ##Install and run the sample
 
-1. From your wlp/ installation directory, run the self-extracting sample archive:
+1. Use the sample server.xml as a guide for configuring your server with javaBatch-1.0.
 
-        $ java -jar LibertyServer.jar
+2. Configure java batch persistence and create the batch runtime database. See the following knowledge center
+article for more information: http://www-01.ibm.com/support/knowledgecenter/was_beta_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/rwlp_batch_persistence_config.html
 
-2. Start the server:
+3. Install the sample app to your server by copying SleepyBatchletSample-1.0.war into
+the server's dropins/ directory.
 
-        $ bin/server start LibertyServer
-
-3. Run the sample. You can kickoff the batch job thru the sample servlet
+4. Run the sample. You can kickoff the batch job thru the sample servlet
 by hitting the following URL, either via a browser or cURL or your preferred HTTP client:
 
         http://localhost:9080/SleepyBatchletSample-1.0/sleepybatchlet?action=start
@@ -91,33 +97,15 @@ JobExecution: executionId=3, jobName=sleepy-batchlet, batchStatus=COMPLETED, cre
 JobExecution: executionId=2, jobName=sleepy-batchlet, batchStatus=STOPPED, createTime=2014-09-12 13:41:31.011, startTime=2014-09-12 13:41:31.02, endTime=2014-09-12 13:41:42.041, lastUpdatedTime=2014-09-12 13:41:42.041, jobParameters={sleep.time.seconds=22}
 ```
 
-##Notes
-
-* The self-extracting archive **LibertyServer.jar** contains a pre-configured liberty server (named LibertyServer) with the
-SleepyBatchlet sample application already installed.  It also contains a pre-built Derby database for
-the Batch runtime tables, which are needed by javaBatch-1.0 for managing jobs.  Please see the Liberty
-Knowledge Center for information on how to create, configure, and customize the batch database.
-
-* The sample application source code is included. It can be built via maven or imported into WDT (WebSphere Developer Tools).
-
 ##Layout
 
 The sample repository contains the following files:
 
-    LibertyServer.jar
     README.md
+    SleepyBatchletSample-1.0.war
+    server.xml
     pom.xml
     src/main/java/com/ibm/ws/jbatch/sample/sleepybatchlet/SleepyBatchlet.java
     src/main/java/com/ibm/ws/jbatch/sample/sleepybatchlet/web/SleepyBatchletServlet.java
     src/main/webapp/WEB-INF/classes/META-INF/batch-jobs/sleepy-batchlet.xml
-
-The self-extracting archive **LibertyServer.jar** contains:
-
-    wlp/usr/servers/LibertyServer/server.xml
-    wlp/usr/servers/LibertyServer/dropins/SleepyBatchletSample-1.0.war
-    wlp/usr/servers/LibertyServer/resources/BATCHDB/
-    wlp/usr/servers/LibertyServer/resources/derby/derby.jar
-
-...along with several data files under `BATCHDB` and classes that handle self-extraction of the jar.
-These files have been omitted from the above list, for brevity and clarity.
 

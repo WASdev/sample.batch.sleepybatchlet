@@ -1,0 +1,32 @@
+<server>
+
+	<featureManager>
+		<feature>javaBatch-1.0</feature>
+		<feature>servlet-3.1</feature>
+	</featureManager>
+	
+    <!-- Batch DB configuration.  -->
+    <!-- Note: The schema and tablePrefix used by the batch tables can be customized. -->
+    <!-- See the Liberty Knowledge Center for information on how to configure the Batch DB. -->
+	<javaBatchContainerPersistence dataSourceRef="batchDB" />
+
+    <!-- The derby driver -->
+    <library id="DerbyLib">
+		<fileset dir="${server.config.dir}/resources/derby" />
+	</library>
+
+    <!-- Derby datasource used for batch tables-->
+    <dataSource id="batchDB" jndiName="jdbc/batch" type="javax.sql.XADataSource">
+        <jdbcDriver libraryRef="DerbyLib"/>
+        <properties.derby.embedded 
+            databaseName="${server.config.dir}/resources/BATCHDB" 
+            createDatabase="create" 
+            user="user" 
+            password="pass" />
+    </dataSource>
+
+    <httpEndpoint id="defaultHttpEndpoint"
+                  host="*"
+                  httpPort="9080"
+                  httpsPort="9063"/>
+</server>
