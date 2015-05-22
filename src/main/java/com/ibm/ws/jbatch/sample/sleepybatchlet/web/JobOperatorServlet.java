@@ -696,13 +696,13 @@ class HtmlWriter extends TextWriter {
      */
     public TextWriter printJobName(String jobName) throws IOException  {
         print("JobName: " + jobName);
-        print(" <a href=" + StringUtils.enquote("joboperator?action=getJobInstances&jobName=" + jobName + "&start=0&count=100") + ">"
+        print(", <a href=" + StringUtils.enquote("joboperator?action=getJobInstances&jobName=" + jobName + "&start=0&count=100") + ">"
                 + "getJobInstances(jobName=" + jobName + ", start=0, count=100)"
                 + "</a>");   		
-        print(" <a href=" + StringUtils.enquote("joboperator?action=getJobInstanceCount&jobName=" + jobName ) + ">"
+        print(", <a href=" + StringUtils.enquote("joboperator?action=getJobInstanceCount&jobName=" + jobName ) + ">"
                 + "getJobInstanceCount(jobName=" + jobName + ")"
                 + "</a>");   		
-        print(" <a href=" + StringUtils.enquote("joboperator?action=getRunningExecutions&jobName=" + jobName ) + ">"
+        print(", <a href=" + StringUtils.enquote("joboperator?action=getRunningExecutions&jobName=" + jobName ) + ">"
                 + "getRunningExecutions(jobName=" + jobName + ")"
                 + "</a>");   		
         return println("");
@@ -713,7 +713,7 @@ class HtmlWriter extends TextWriter {
      */
     public TextWriter printJobInstance(JobInstance jobInstance) throws IOException {
         print( "JobInstance: " + jobInstanceToString(jobInstance) );
-        print(" <a href=" + StringUtils.enquote("joboperator?action=getJobExecutions&instanceId=" + jobInstance.getInstanceId() ) + ">"
+        print(", <a href=" + StringUtils.enquote("joboperator?action=getJobExecutions&instanceId=" + jobInstance.getInstanceId() ) + ">"
                       + "getJobExecutions(instanceId=" + jobInstance.getInstanceId() + ")"
                       + "</a>");   		
         return println("");
@@ -724,18 +724,18 @@ class HtmlWriter extends TextWriter {
      */
     public TextWriter printJobExecution(JobExecution jobExecution) throws IOException {
         print( "JobExecution: " + jobExecutionToString(jobExecution) );
-        print(" <a href=" + StringUtils.enquote("joboperator?action=getJobInstance&executionId=" + jobExecution.getExecutionId() ) + ">"
+        print(", <a href=" + StringUtils.enquote("joboperator?action=getJobInstance&executionId=" + jobExecution.getExecutionId() ) + ">"
                       + "getJobInstance(executionId=" + jobExecution.getExecutionId() + ")"
                       + "</a>");   		
-        print(" <a href=" + StringUtils.enquote("joboperator?action=getParameters&executionId=" + jobExecution.getExecutionId() ) + ">"
+        print(", <a href=" + StringUtils.enquote("joboperator?action=getParameters&executionId=" + jobExecution.getExecutionId() ) + ">"
                       + "getParameters(executionId=" + jobExecution.getExecutionId() + ")"
                       + "</a>");   		
-        print(" <a href=" + StringUtils.enquote("joboperator?action=getStepExecutions&executionId=" + jobExecution.getExecutionId() ) + ">"
+        print(", <a href=" + StringUtils.enquote("joboperator?action=getStepExecutions&executionId=" + jobExecution.getExecutionId() ) + ">"
                       + "getStepExecutions(executionId=" + jobExecution.getExecutionId() + ")"
                       + "</a>");   		
 
         if (BatchUtils.isRunning( jobExecution.getBatchStatus() ) ) {
-            print(" <a href=" + StringUtils.enquote("joboperator?action=stop&executionId=" + jobExecution.getExecutionId() ) + ">"
+            print(", <a href=" + StringUtils.enquote("joboperator?action=stop&executionId=" + jobExecution.getExecutionId() ) + ">"
                           + "stop(executionId=" + jobExecution.getExecutionId() + ")"
                           + "</a>");   		
         }
