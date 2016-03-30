@@ -50,7 +50,7 @@ public class SleepyBatchlet extends AbstractBatchlet {
      * This flag gets set if the batchlet is stopped.  This will break the batchlet
      * out of its sleepy loop.
      */
-    private boolean stopRequested = false;
+    private volatile boolean stopRequested = false;
 
     /**
      * The total sleep time, in seconds.  
