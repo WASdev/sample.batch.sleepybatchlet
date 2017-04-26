@@ -1,4 +1,4 @@
-#SleepyBatchlet sample for batch-1.0 on Liberty
+# SleepyBatchlet sample for batch-1.0 on Liberty
 
 SleepyBatchlet is a simple sample batchlet for use with feature batch-1.0 on WebSphere Liberty Profile.
 batch-1.0 is Liberty's implementation of the Batch Programming Model in Java EE 7, as specified by JSR 352.
@@ -7,13 +7,13 @@ The batchlet itself is rather uninteresting. All it does is sleep in 1 second in
 of 15 seconds.  The sleep time is configurable via batch property *sleep.time.seconds*.  The batchlet
 prints a message to System.out each second, so you can easily verify that it's running.
 
-##Build the sample
+## Build the sample
 
 For your convenience, the sample application has already been built: SleepyBatchletSample-1.0.war.
 
 To build from source, use maven or import the project into WDT (WebSphere Developer Tools).
 
-##Install and run the sample
+## Install and run the sample
 
 1. Use the sample server.xml as a guide for configuring your Liberty server with batch-1.0.
 
@@ -26,7 +26,7 @@ by hitting the following URL:
 
     http://localhost:9080/SleepyBatchletSample-1.0/joboperator?action=start&jobXMLName=sleepy-batchlet
 
-##Controlling sample jobs
+## Controlling sample jobs
 
 Besides starting a job, you can use the JobOperatorServlet to stop, restart, and get status, by hitting the following URLs:
 
@@ -45,7 +45,7 @@ For a complete list of actions available from the JobOperatorServlet, use action
 into your own application and use it to control the jobs for that application.  
 
 
-##Example session
+## Example session
 
 Below is an example session, using cURL.  
 
@@ -97,5 +97,3 @@ JobInstance: instanceId=2, jobName=sleepy-batchlet
 JobExecution: executionId=3, jobName=sleepy-batchlet, batchStatus=COMPLETED, createTime=Fri May 22 11:26:29 EDT 2015, startTime=Fri May 22 11:26:29 EDT 2015, endTime=Fri May 22 11:26:39 EDT 2015, lastUpdatedTime=Fri May 22 11:26:39 EDT 2015, jobParameters={sleep.time.seconds=10}
 JobExecution: executionId=2, jobName=sleepy-batchlet, batchStatus=STOPPED, createTime=Fri May 22 11:25:11 EDT 2015, startTime=Fri May 22 11:25:11 EDT 2015, endTime=Fri May 22 11:25:31 EDT 2015, lastUpdatedTime=Fri May 22 11:25:31 EDT 2015, jobParameters={sleep.time.seconds=32}
 ```
-
-
