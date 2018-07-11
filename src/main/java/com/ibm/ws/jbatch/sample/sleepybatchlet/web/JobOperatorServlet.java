@@ -296,11 +296,8 @@ public class JobOperatorServlet extends HttpServlet {
 
         final long instanceId = getLongParm(request, "instanceId") ;
 
-        List<JobExecution> jobExecutions = getJobOperator().getJobExecutions( new JobInstance() {
-            public long getInstanceId() { return instanceId; }
-            public String getJobName() { return "dummy-for-call-to-getJobExecutions"; }
-        });
-
+        List<JobExecution> jobExecutions = getJobOperator().getJobExecutions(getJobOperator().getJobInstance(instanceId));
+        
         getResponseWriter().setHttpServletResponse( response )
                            .beginResponse(HttpServletResponse.SC_OK)
                            .println( "getJobExecutions(instanceId=" + instanceId + "): ")
@@ -744,6 +741,7 @@ class HtmlWriter extends TextWriter {
     }
 
 }
+
 
 
 
