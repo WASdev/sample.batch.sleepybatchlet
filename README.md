@@ -1,26 +1,20 @@
 # SleepyBatchlet sample for batch-1.0 on Liberty
 
-SleepyBatchlet is a simple sample batchlet for use with feature batch-1.0 on WebSphere Liberty Profile.
-batch-1.0 is Liberty's implementation of the Batch Programming Model in Java EE 7, as specified by JSR 352.
+SleepyBatchlet is a simple sample batchlet for use with feature batch-1.0 in Open Liberty.
+The batch-1.0 feature is Open Liberty's implementation of the Batch Programming Model in Java EE 7, as specified by JSR 352, and also
+included in Jakarta EE version 8.
 
 The batchlet itself is rather uninteresting. All it does is sleep in 1 second increments for a default time
 of 15 seconds.  The sleep time is configurable via batch property *sleep.time.seconds*.  The batchlet
 prints a message to System.out each second, so you can easily verify that it's running.
 
-## Build the sample
+## Build and run the sample
 
 For your convenience, the sample application has already been built: SleepyBatchletSample-1.0.war.
 
-To build from source, use maven or import the project into WDT (WebSphere Developer Tools).
+To work with the source, use `mvn liberty:dev` to use the "dev mode" of the liberty-maven-plugin or just `mvn package` to build the WAR.
 
-## Install and run the sample
-
-1. Use the sample server.xml as a guide for configuring your Liberty server with batch-1.0.
-
-2. Install the sample app to your server by copying SleepyBatchletSample-1.0.war into
-the server's dropins/ directory.
-
-3. Run the sample. The sample app includes a generic JobOperatorServlet that acts as
+The sample app includes a generic JobOperatorServlet that acts as
 thin wrapper around the JobOperator API.  You can start the batch job thru this servlet
 by hitting the following URL:
 
