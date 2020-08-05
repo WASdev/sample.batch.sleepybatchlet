@@ -24,9 +24,9 @@ package com.ibm.ws.jbatch.sample.sleepybatchlet;
 
 import java.util.logging.Logger;
 
-import javax.batch.api.AbstractBatchlet;
-import javax.batch.api.BatchProperty;
-import javax.inject.Inject;
+import jakarta.batch.api.AbstractBatchlet;
+import jakarta.batch.api.BatchProperty;
+import jakarta.inject.Inject;
 
 /**
  * This simple batchlet sleeps in 1 second increments up to "sleep.time.seconds".

@@ -20,7 +20,7 @@
  - 
  - All Rights Reserved. Licensed Materials - Property of IBM.  
  -->
-<job id="sleepy-batchlet" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+<job id="sleepy-batchlet" xmlns="https://jakarta.ee/xml/ns/jakartaee" version="2.0">
 	<step id="step1">
 		<batchlet ref="com.ibm.ws.jbatch.sample.sleepybatchlet.SleepyBatchlet" >
             <properties>
